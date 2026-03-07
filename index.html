@@ -1,0 +1,225 @@
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Feliz Día de la Mujer</title>
+
+<style>
+
+body{
+background: linear-gradient(135deg,#ffdde1,#ee9ca7);
+font-family: Arial;
+text-align:center;
+overflow:hidden;
+margin:0;
+}
+
+/* Banner */
+
+.banner{
+background:url("https://images.unsplash.com/photo-1526047932273-341f2a7631f9?w=1200");
+background-size:cover;
+background-position:center;
+height:250px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:40px;
+font-weight:bold;
+text-shadow:2px 2px 8px rgba(0,0,0,0.5);
+}
+
+/* TEXTO MORADO CON BRILLO */
+
+.morado{
+
+font-size:48px;
+font-weight:bold;
+
+background: linear-gradient(
+90deg,
+#6a1b9a,
+#ce93d8,
+#ffffff,
+#ce93d8,
+#6a1b9a
+);
+
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation: brillo 4s linear infinite;
+
+}
+
+@keyframes brillo{
+
+0%{background-position:0%;}
+100%{background-position:300%;}
+
+}
+
+/* Tarjeta */
+
+.card{
+background:white;
+width:60%;
+margin:auto;
+margin-top:-80px;
+padding:40px;
+border-radius:20px;
+box-shadow:0px 10px 25px rgba(0,0,0,0.2);
+animation: aparecer 2s ease;
+}
+
+p{
+font-size:20px;
+}
+
+/* Corazón */
+
+.corazon{
+font-size:50px;
+animation: latido 1s infinite;
+}
+
+/* Botón */
+
+.celebrar{
+background:#8e24aa;
+color:white;
+border:none;
+padding:15px 25px;
+font-size:18px;
+border-radius:10px;
+cursor:pointer;
+margin-top:20px;
+}
+
+/* Animaciones */
+
+@keyframes aparecer{
+from{opacity:0; transform:translateY(50px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes latido{
+0%{transform:scale(1);}
+50%{transform:scale(1.2);}
+100%{transform:scale(1);}
+}
+
+/* Pétalos */
+
+.petalo{
+position:absolute;
+top:-50px;
+font-size:22px;
+animation: caer linear infinite;
+opacity:0.9;
+}
+
+@keyframes caer{
+to{
+transform:translateY(120vh) rotate(360deg);
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="banner">
+🌸 Feliz <span class="morado">Día Internacional de la Mujer</span> 🌸
+</div>
+
+<div class="card">
+
+<p>
+Hoy celebramos la fortaleza, la valentía y la sabiduría de todas las mujeres.
+</p>
+
+<p>
+Gracias por inspirar, enseñar, cuidar y transformar el mundo cada día.
+</p>
+
+<p>
+Que este día recuerde lo valiosas, capaces y extraordinarias que son.
+</p>
+
+<div class="corazon">❤️</div>
+
+<button class="celebrar" onclick="celebrar()">
+Celebrar este día
+</button>
+
+<p>
+Con respeto y admiración<br><br>
+<b>Jesús Mendoza</b>
+</p>
+
+</div>
+
+<script>
+
+/* Pétalos cayendo */
+
+function crearPetalo(){
+
+const petalo = document.createElement("div");
+petalo.classList.add("petalo");
+
+const flores=["🌸","🌺","🌷","💮"];
+
+petalo.innerHTML=flores[Math.floor(Math.random()*flores.length)];
+
+petalo.style.left=Math.random()*100+"vw";
+petalo.style.animationDuration=(Math.random()*4+4)+"s";
+
+document.body.appendChild(petalo);
+
+setTimeout(()=>{
+petalo.remove();
+},8000);
+
+}
+
+setInterval(crearPetalo,300);
+
+
+/* Lluvia de corazones */
+
+function celebrar(){
+
+for(let i=0;i<40;i++){
+
+const corazon=document.createElement("div");
+
+corazon.innerHTML="💖";
+
+corazon.style.position="absolute";
+corazon.style.left=Math.random()*100+"vw";
+corazon.style.top=Math.random()*100+"vh";
+corazon.style.fontSize="30px";
+
+document.body.appendChild(corazon);
+
+setTimeout(()=>{
+corazon.remove();
+},3000);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
+```
